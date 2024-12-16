@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h2.title {
+  @apply font-semibold font-sans text-center text-2xl
+}
+
+h2.subtitle {
+  @apply font-semibold text-lg font-sans text-left leading-relaxed 
+}
+
+
+.navbar {
+  @apply absolute border-slate-200  border-2 rounded-lg -top-2 left-1/2 -translate-x-1/2 h-min w-1/2 p-5 m-0 flex flex-row justify-center items-center 
+  shadow-sm bg-white z-10
+}
+
+
+.sidebar {
+  @apply absolute top-20 right-0 bottom-20 w-[20rem] bg-white h-auto z-10 border-2 border-slate-200 rounded-xl p-8
+  flex flex-col justify-start items-stretch 
+
+}
