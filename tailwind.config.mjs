@@ -13,5 +13,9 @@ export default {
       },
     },
   },
+  // prefix: 'tw-',
+  corePlugins: {
+    preflight: false,
+  }, // klo mau make tailwind bareng sama css lib yang lain harus dikasi ini, karena tailwind akan me reset semua class css pada tahap preflight
   plugins: [],
 };

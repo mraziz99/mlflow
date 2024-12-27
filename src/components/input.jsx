@@ -1,37 +1,28 @@
 import React from 'react'
-import {
-  AccordionItem,
-  AccordionItemContent,
-  AccordionItemTrigger,
-  AccordionRoot,
-} from "@/components/ui/accordion"
+
+import {  Button } from '@/components/ui/button'
+import { Flex,Box } from '@chakra-ui/react'
+import { LuCopyPlus } from 'react-icons'
+
+
 
 
 const Input = () => {
+
+  
+
+
+
   return (
-    <div className='p-10'>
-        <AccordionRoot
-          varian='enclosed'
-          key='closed'
-          collapsible
-          defaultValue={["a"]}
-          multiple
-        >
+    <div className='w-full'>
+      <Flex gap='3' direction='row' wrap='wrap' justify='space-evenly' align='stretch'>
+        <Box borderRadius='lg' shadow='md' height='20' width='45%'>
 
-          <AccordionItem key="a" value="a" >
-            <AccordionItemTrigger>From file</AccordionItemTrigger>
-            <AccordionItemContent>Manual Input</AccordionItemContent>
+        </Box>
+        <Box borderRadius='lg' shadow='md' height='20' width='45%'>
 
-          </AccordionItem>
-          <AccordionItem key="b" value="b" >
-
-
-          </AccordionItem>
-          <AccordionItem key="c" value="c" >
-
-
-          </AccordionItem>
-        </AccordionRoot>
+        </Box>
+      </Flex>
         
     </div>
   )
