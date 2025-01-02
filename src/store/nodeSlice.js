@@ -31,13 +31,17 @@ const initialState = [
     initialState,
     reducers: {
         addNodes: (state,action) => {
-            state.push(action.payload)
+            state = action.payload
         },
         deleteNodes: (state,action) => {
 
             return _.filter(state, (e) => {
                 return e.id != action.payload
             })
+        },
+
+        nodeChange: (state,action) => {
+            return actions.payload
         }
 
     }
