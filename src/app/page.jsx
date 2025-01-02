@@ -2,13 +2,12 @@
 
 import {useState, useCallback} from 'react'
 import { Background, 
-  ReactFlow,addEdge,
-  applyEdgeChanges,
-  applyNodeChanges,Controls } from '@xyflow/react';
+  ReactFlow,
+  Controls } from '@xyflow/react';
 import Sidebar from './sidebar';
 import { useSelector, useDispatch } from 'react-redux'
-import { addNodes } from '../store/nodeSlice';
-
+import { nodesChange } from '../store/nodeSlice';
+import { edgesChange } from '@/store/edgeSlice';
 
 
 import '@xyflow/react/dist/style.css';
@@ -18,47 +17,21 @@ import '@xyflow/react/dist/style.css';
 export default function Home() {
 
 
-  const nodes = useSelector((state) => state.nodes) 
+  const {nodes,edges} = useSelector((state) => state) 
+
 
   const dispatch = useDispatch()
 
-  // const [nodes, setnodes] = useState([
-  //   {
-  //     id: '1',
-  //     type : 'input',
-  //     data: {
-  //       label: 'input node'
-  //     },
-  //     position: {x:200,y:200}
-  //   },
-  //   {
-  //     id: '2',
-  //     data : {
-  //       label : 'Default'
-  //     },
-  //     position: {x:150,y:350}
-  //   }
-  // ])
-
-
-  const [edges, setedges] = useState([
-    {
-      id: 'e1-2',source: '1', target: '2'
-    }
-  ])
-
-
 
   const onNodeChange = useCallback(
-    (changes) => dispatch(addNodes((nds) => applyNodeChanges(changes, nds)))
+    (changes) => dispatch(nodesChange(changes)),
     [dispatch],
   )
 
- 
 
   const onEdgeChange = useCallback(
-    (changes) => setedges((eds) => applyEdgeChanges(changes, eds)),
-    [setedges],
+    (changes) => dispatch(edgesChange(changes)),
+    [dispatch],
   )
 
 
@@ -85,7 +58,7 @@ export default function Home() {
           <h2 className="title">ML Flow App</h2>
 
         </div>
-        <Sidebar addNodes={addNodes} />
+        <Sidebar />
         <ReactFlow 
           nodes={nodes}
           edges={edges}

@@ -5,6 +5,8 @@ import { LuUser,LuFolder,LuFileInput  } from 'react-icons/lu'
 import Input from '@/components/input'
 import {  Button } from '@/components/ui/button'
 import Preprocess from '@/components/preprocess'
+import {addNodes} from '../store/nodeSlice'
+import { useDispatch } from 'react-redux'
 
 
 const sidebar = () => {
@@ -12,6 +14,8 @@ const sidebar = () => {
 
   const [valueTabs, setvalueTabs] = useState('input')
 
+  const dispatch = useDispatch()
+  
 
 
   return (
@@ -24,7 +28,6 @@ const sidebar = () => {
             variant='solid'
             p='2'
             className='absolute bottom-3 right-5 left-5'
-          
         >
           Spawn Selected Nodes
         </Button>

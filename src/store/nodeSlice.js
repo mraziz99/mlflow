@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import { applyNodeChanges } from '@xyflow/react'
 
 
 
@@ -31,7 +31,8 @@ const initialState = [
     initialState,
     reducers: {
         addNodes: (state,action) => {
-            state = action.payload
+          
+          // state =  applyNodeChanges(state,action.payload)
         },
         deleteNodes: (state,action) => {
 
@@ -40,8 +41,8 @@ const initialState = [
             })
         },
 
-        nodeChange: (state,action) => {
-            return actions.payload
+        nodesChange: (state,action) => {
+          return [ ...applyNodeChanges(action.payload,state)]
         }
 
     }
@@ -49,6 +50,6 @@ const initialState = [
 
 
 
-  export const { addNodes,deleteNodes } = nodeSlice.actions
+  export const { addNodes,deleteNodes,nodesChange } = nodeSlice.actions
 
   export default nodeSlice.reducer
