@@ -18,6 +18,14 @@ const initialState = [
         label : 'Default'
       },
       position: {x:150,y:350}
+    },
+    {
+      id: '3',
+      type: 'inputNode',
+      data: {
+        label : 'Sigmoid'
+      },
+      position: {x:180,y:550}
     }
   ]
 
@@ -32,7 +40,9 @@ const initialState = [
     reducers: {
         addNodes: (state,action) => {
           
-          // state =  applyNodeChanges(state,action.payload)
+          return {
+
+          }
         },
         deleteNodes: (state,action) => {
 

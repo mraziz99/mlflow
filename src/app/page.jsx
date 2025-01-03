@@ -8,6 +8,7 @@ import Sidebar from './sidebar';
 import { useSelector, useDispatch } from 'react-redux'
 import { nodesChange } from '../store/nodeSlice';
 import { edgesChange } from '@/store/edgeSlice';
+import InputNode from '../components/nodeTypes/inputNode'
 
 
 import '@xyflow/react/dist/style.css';
@@ -28,6 +29,9 @@ export default function Home() {
     [dispatch],
   )
 
+  const nodeTypes= {
+    inputNode: InputNode
+  }
 
   const onEdgeChange = useCallback(
     (changes) => dispatch(edgesChange(changes)),
@@ -64,11 +68,12 @@ export default function Home() {
           edges={edges}
           onNodesChange={onNodeChange}
           onEdgesChange={onEdgeChange}
+          nodeTypes={nodeTypes}
         >
           <Background />
           <Controls />
         </ReactFlow>
-        
+           
       </div>
   );
 
