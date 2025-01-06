@@ -8,7 +8,7 @@ import Sidebar from './sidebar';
 import { useSelector, useDispatch } from 'react-redux'
 import { nodesChange } from '../store/nodeSlice';
 import { edgesChange,newEdge } from '@/store/edgeSlice';
-import InputNode from '../components/nodeTypes/inputNode'
+import {inputNode} from '../components/nodeTypes/inputNode'
 
 
 import '@xyflow/react/dist/style.css';
@@ -30,7 +30,7 @@ export default function Home() {
   )
 
   const nodeTypes= {
-    inputNode: InputNode
+    inputNode: inputNode
   }
 
   const onEdgeChange = useCallback(

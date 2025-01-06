@@ -26,6 +26,30 @@ const initialState = [
         label : 'Sigmoid'
       },
       position: {x:180,y:550}
+    },
+    {
+      id: '4',
+      type: 'inputNode',
+      data: {
+        label : 'Sigmoid'
+      },
+      position: {x:200,y:550}
+    },
+    {
+      id: '5',
+      type: 'inputNode',
+      data: {
+        label : 'Sigmoid'
+      },
+      position: {x:220,y:550}
+    },
+    {
+      id: '6',
+      type: 'inputNode',
+      data: {
+        label : 'Sigmoid'
+      },
+      position: {x:230,y:550}
     }
   ]
 

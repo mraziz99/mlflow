@@ -1,18 +1,20 @@
 import React, {memo} from 'react'
 import {Handle , Position } from '@xyflow/react'
-import { Container,Flex,Heading,Text } from '@chakra-ui/react'
+import { Box, Container,Flex,Heading,Text } from '@chakra-ui/react'
 
 
 
 
-const inputNode = ({data, isConnect=false}) => {
-
-
+export const inputNode = ({data, isConnect=false}) => {
 
 
   return (
 
-    <>
+    <Container
+        p='0'
+        width='15em'
+        height='auto'
+    >
     <Handle 
         type='target'
         position={Position.Left}
@@ -25,14 +27,25 @@ const inputNode = ({data, isConnect=false}) => {
         isConnectable={true}
 
     />
-    <Container
+    <Box
+        bgColor='green.400'
+        border='solid 1px'
+        p='2'
+        borderRadius='8px 8px 0 0'
+    >
+        <Text>
+            Input Nodes
+        </Text>
+    </Box>
+
+    <Box
         bgColor='white'
         border='solid'
         borderWidth='1px'
-        borderRadius='lg'
+        borderRadius='0 0 8px 8px'
         p='3'
-        width='20em'
-        height='10em'
+        width='15em'
+        height='6em'
         display='flex'
         flexDirection='column'
         justify='center' 
@@ -48,10 +61,15 @@ const inputNode = ({data, isConnect=false}) => {
             </Text>
 
 
-    </Container>
+    </Box>
 
-    </>
+    </Container>
   )
 }
 
-export default memo(inputNode)
+
+export const preprocess = () => {
+
+}
+
+

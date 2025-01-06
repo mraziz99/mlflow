@@ -21,7 +21,7 @@ const initialState = [
     reducers: {
         newEdge: (state,action) => {
           console.log('berhasil trigger')
-          return [ ...addEdge({ ...action.payload , animated: true}, state) ]
+          return [ ...addEdge({ ...action.payload , animated: false}, state) ]
           
         },
         deleteEdges: (state,action) => {
