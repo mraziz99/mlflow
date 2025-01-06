@@ -40,9 +40,7 @@ const initialState = [
     reducers: {
         addNodes: (state,action) => {
           
-          return {
-
-          }
+          return true
         },
         deleteNodes: (state,action) => {
 

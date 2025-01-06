@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { applyEdgeChanges } from '@xyflow/react'
-
+import { addEdge } from '@xyflow/react'
 
 
 
@@ -19,9 +19,10 @@ const initialState = [
     name: 'edge',
     initialState,
     reducers: {
-        addEdge: (state,action) => {
+        newEdge: (state,action) => {
+          console.log('berhasil trigger')
+          return [ ...addEdge({ ...action.payload , animated: true}, state) ]
           
-          // state =  applyNodeChanges(state,action.payload)
         },
         deleteEdges: (state,action) => {
 
@@ -39,6 +40,6 @@ const initialState = [
 
 
 
-  export const { addEdge,deleteEdges,edgesChange } = edgeSlice.actions
+  export const { newEdge,deleteEdges,edgesChange } = edgeSlice.actions
 
   export default edgeSlice.reducer

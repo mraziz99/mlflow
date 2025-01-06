@@ -7,7 +7,7 @@ import { Background,
 import Sidebar from './sidebar';
 import { useSelector, useDispatch } from 'react-redux'
 import { nodesChange } from '../store/nodeSlice';
-import { edgesChange } from '@/store/edgeSlice';
+import { edgesChange,newEdge } from '@/store/edgeSlice';
 import InputNode from '../components/nodeTypes/inputNode'
 
 
@@ -38,6 +38,11 @@ export default function Home() {
     [dispatch],
   )
 
+  const onConnect = useCallback(
+    (changes) => dispatch(newEdge(changes)),
+    [dispatch]
+  )
+
 
 
   // const addNodes = (id,data) => {
@@ -66,6 +71,7 @@ export default function Home() {
         <ReactFlow 
           nodes={nodes}
           edges={edges}
+          onConnect={onConnect}
           onNodesChange={onNodeChange}
           onEdgesChange={onEdgeChange}
           nodeTypes={nodeTypes}
