@@ -9,6 +9,12 @@ export const store = () => {
         nodes: nodeReducer,
         edges: edgeReducer
       },
+
+      middleware: (getDefault) => {
+        return getDefault({
+          serializableCheck: false
+        })
+      }
     })
 }
 

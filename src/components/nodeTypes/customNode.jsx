@@ -74,7 +74,7 @@ export const preNode = ({data}) => {
 
         <Container
             p='0'
-            width='6em'
+            width='10em'
             height='6em'
         >
         <Handle 

@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import {
   AccordionItem,
@@ -13,12 +15,16 @@ import { useDispatch } from 'react-redux';
 import { addNodes } from '@/store/nodeSlice';
 
 
+
+
+
 const Preprocess = () => {
 
 
 
   
   const dispatch = useDispatch()
+
 
   const textData = [
 
@@ -29,7 +35,6 @@ const Preprocess = () => {
       data: {
         nodeId: '2a', // buat keperluan di backend nentuin jenis node di dalem network 
         label : 'One-Hot',
-
       }
     },
     {
@@ -38,7 +43,7 @@ const Preprocess = () => {
       icon: <GrDocumentTxt size='2em' />,
       data: {
         nodeId: '2b',
-        label: 'Tf-Idf',
+        label: 'Tf-Idf'
       }
     },
 
@@ -68,10 +73,28 @@ const Preprocess = () => {
     }
   ]
 
+
+
   const boxProp = {
     borderRadius:'lg' ,_hover:{ scale: '1.1',cursor: 'pointer',shadow: 'lg' }, shadow:'sm', border:'solid 1px', borderColor:'teal.200' ,borderRadius:'md'  ,height:'24' ,width:'45%',transition: 'scale 0.1s ease-in'
   }
     
+
+  const spawnNodes = (dat) => {
+
+    dispatch(addNodes({
+      type: 'preNode',
+      data : {
+        label: dat.label,
+        nodeId: dat.id,
+        icon: dat.icon
+      }
+      
+    }))
+
+  }
+
+
   return (
     <div>
 
@@ -91,7 +114,7 @@ const Preprocess = () => {
               
                 {
                   _.map(textData, (val) => (
-                    <Box bgColor='white' key={val.id}  p='3' {...boxProp}>
+                    <Box bgColor='white' key={val.id}  p='3' {...boxProp} onClick={() => spawnNodes(val)} >
                       <Flex direction='column' justify='end' alignItems='center' gap='4' >
                         {val.icon}
                         <Heading textAlign='center' size='sm' as='h4'>
@@ -114,7 +137,7 @@ const Preprocess = () => {
               
               {
                 _.map(numericData, (val) => (
-                  <Box bgColor='white' key={val.id}  p='3' {...boxProp}>
+                  <Box bgColor='white' key={val.id}  p='3' {...boxProp} onClick={() => spawnNodes(val)} >
                     <Flex direction='column' justify='end' alignItems='center' gap='4' >
                       {val.icon}
                       <Heading textAlign='center' size='sm' as='h4'>

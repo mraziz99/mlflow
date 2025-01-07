@@ -68,7 +68,7 @@ const initialState = [
         addNodes: (state,action) => {
           
           let max = _.maxBy(state, 'id')
-          console.log(max)
+          console.log('cekkk'+max)
           state.push({
             id: max.id+1,
             position : {
@@ -76,7 +76,9 @@ const initialState = [
               y: Math.floor(Math.random() * (300 - 100 + 1)) + 100
             },
             ...action.payload
+
           })
+          console.log(state)
         },
         deleteNodes: (state,action) => {
 
