@@ -19,6 +19,7 @@ const sidebar = () => {
 
 
   return (
+    
     <div className='sidebar'>
 
         <Button 
@@ -43,16 +44,16 @@ const sidebar = () => {
               <LuFolder />
               Process
             </Tabs.Trigger>
-            <Tabs.Trigger value='model' _selected={{color:'white'}} >
+            <Tabs.Trigger value='Layer' _selected={{color:'white'}} >
               <LuUser />
-              Model
+              Layer
             </Tabs.Trigger>
             <Tabs.Indicator bg='green.700' rounded="l3"  />
           </Tabs.List>
           <Tabs.Content value="input"><Input /></Tabs.Content>
           <Tabs.Content value="process"> <Preprocess /> </Tabs.Content>
-          <Tabs.Content value="model">
-            Disini List Model
+          <Tabs.Content value="Layer">
+            Disini List Layer
           </Tabs.Content>
         </Tabs.Root>
 

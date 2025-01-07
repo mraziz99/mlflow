@@ -9,25 +9,37 @@ import {
 import { Flex,Box,Heading } from '@chakra-ui/react';
 import { PiColumnsPlusRightLight } from "react-icons/pi";
 import { GrDocumentTxt } from "react-icons/gr";
-
-
+import { useDispatch } from 'react-redux';
+import { addNodes } from '@/store/nodeSlice';
 
 
 const Preprocess = () => {
 
 
 
+  
+  const dispatch = useDispatch()
+
   const textData = [
 
     {
       id: '2a',
-      title: 'One-Hot',
-      icon: <PiColumnsPlusRightLight size='2em' />
+      label: 'One-Hot',
+      icon: <PiColumnsPlusRightLight size='2em' />,
+      data: {
+        nodeId: '2a', // buat keperluan di backend nentuin jenis node di dalem network 
+        label : 'One-Hot',
+
+      }
     },
     {
       id: '2b',
-      title: 'Tf-Idf',
-      icon: <GrDocumentTxt size='2em' />
+      label: 'Tf-Idf',
+      icon: <GrDocumentTxt size='2em' />,
+      data: {
+        nodeId: '2b',
+        label: 'Tf-Idf',
+      }
     },
 
   ]
@@ -36,22 +48,22 @@ const Preprocess = () => {
   const numericData = [
     {
       id: '2c',
-      title: 'Feature Scaling',
+      label: 'Feature Scaling',
       icon: <GrDocumentTxt size='2em' />
     },
     {
       id: '2d',
-      title: 'Missing Values',
+      label: 'Missing Values',
       icon: <GrDocumentTxt size='2em' />
     },
     {
       id: '2e',
-      title: 'Discretization',
+      label: 'Discretization',
       icon: <GrDocumentTxt size='2em' />
     },
     {
       id: '2f',
-      title: 'Missing Values',
+      label: 'Missing Values',
       icon: <GrDocumentTxt size='2em' />
     }
   ]
@@ -83,7 +95,7 @@ const Preprocess = () => {
                       <Flex direction='column' justify='end' alignItems='center' gap='4' >
                         {val.icon}
                         <Heading textAlign='center' size='sm' as='h4'>
-                          {val.title}
+                          {val.label}
                         </Heading>  
                       </Flex>
                     </Box>
@@ -106,7 +118,7 @@ const Preprocess = () => {
                     <Flex direction='column' justify='end' alignItems='center' gap='4' >
                       {val.icon}
                       <Heading textAlign='center' size='sm' as='h4'>
-                        {val.title}
+                        {val.label}
                       </Heading>  
                     </Flex>
                   </Box>

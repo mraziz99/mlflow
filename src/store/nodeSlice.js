@@ -3,6 +3,9 @@ import { applyNodeChanges } from '@xyflow/react'
 
 
 
+
+
+
 const initialState = [
     {
       id: '1',
@@ -31,7 +34,7 @@ const initialState = [
       id: '4',
       type: 'inputNode',
       data: {
-        label : 'Sigmoid'
+        label : 'Sigmoid1'
       },
       position: {x:200,y:550}
     },
@@ -39,7 +42,7 @@ const initialState = [
       id: '5',
       type: 'inputNode',
       data: {
-        label : 'Sigmoid'
+        label : 'Sigmoid2'
       },
       position: {x:220,y:550}
     },
@@ -47,7 +50,7 @@ const initialState = [
       id: '6',
       type: 'inputNode',
       data: {
-        label : 'Sigmoid'
+        label : 'Sigmoid3'
       },
       position: {x:230,y:550}
     }
@@ -64,7 +67,16 @@ const initialState = [
     reducers: {
         addNodes: (state,action) => {
           
-          return true
+          let max = _.maxBy(state, 'id')
+          console.log(max)
+          state.push({
+            id: max.id+1,
+            position : {
+              x: Math.floor(Math.random() * (300 - 100 + 1)) + 100,
+              y: Math.floor(Math.random() * (300 - 100 + 1)) + 100
+            },
+            ...action.payload
+          })
         },
         deleteNodes: (state,action) => {
 
