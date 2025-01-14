@@ -21,10 +21,12 @@ const layer = () => {
             id: '3a',
             label : 'Neuron',
             data: {
+                nodeId: '3a',
                 
             }
         }
     ]
+
 
     const recurrent  = [
         {
@@ -32,11 +34,14 @@ const layer = () => {
         }
     ]
 
+
+
     const convol = [
         {
 
         }
     ]
+
 
 
 

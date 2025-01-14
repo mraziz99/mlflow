@@ -65,8 +65,9 @@ const initialState = [
     name: 'node',
     initialState,
     reducers: {
+      
         addNodes: (state,action) => {
-          
+
           let max = _.maxBy(state, 'id')
           console.log('cekkk'+max)
           state.push({
